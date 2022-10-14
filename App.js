@@ -1,17 +1,22 @@
-import * as React from 'react';
+
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import Home from './src/Pages/Home'
 import { StatusBar } from 'react-native';
 import Color from './src/details/color';
+import Login from './src/Pages/Login';
+import  Register from './src/Pages/Register';
+import Home from './src/Pages/Home';
 
 const Stack = createNativeStackNavigator();
 
 function App() {
   return (
     <NavigationContainer >
+      
       <StatusBar backgroundColor={Color.white}/>
-      <Stack.Navigator >
+      <Stack.Navigator  initialRouteName='Login'>
+        <Stack.Screen  options={{headerShown:false}} name="Register" component={Register }/>
+        <Stack.Screen  options={{headerShown:false}} name="Login" component={Login}/>
         <Stack.Screen  options={{headerShown:false}} name="Home" component={Home }/>
       </Stack.Navigator>
     </NavigationContainer>
