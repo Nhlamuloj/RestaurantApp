@@ -6,6 +6,8 @@ import Color from './src/details/color';
 import Login from './src/Pages/Login';
 import  Register from './src/Pages/Register';
 import Home from './src/Pages/Home';
+import Info from './src/Pages/Info'
+
 
 const Stack = createNativeStackNavigator();
 
@@ -14,10 +16,10 @@ function App() {
     <NavigationContainer >
       
       <StatusBar backgroundColor={Color.white}/>
-      <Stack.Navigator  initialRouteName='Login'>
-        <Stack.Screen  options={{headerShown:false}} name="Register" component={Register }/>
-        <Stack.Screen  options={{headerShown:false}} name="Login" component={Login}/>
-        <Stack.Screen  options={{headerShown:false}} name="Home" component={Home }/>
+      <Stack.Navigator  initialRouteName='Information'>
+        <Stack.Screen  options={{headerShown:false}} name="Home" component={Home}/>
+        <Stack.Screen  options={{headerShown:false}} name="Information" component={Info}/>
+      
       </Stack.Navigator>
     </NavigationContainer>
   );
