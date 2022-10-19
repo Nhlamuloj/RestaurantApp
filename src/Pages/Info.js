@@ -1,6 +1,7 @@
-import { SafeAreaView, StyleSheet, Text, View } from 'react-native'
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
+import { SafeAreaView, StyleSheet, Text, View, Image } from 'react-native'
+import Icon from 'react-native-vector-icons/FontAwesome'
 import React from 'react'
+import food from '../details/food';
 
 const Info = ({navigation, route}) => {
     const item = route.params;
@@ -13,9 +14,10 @@ const Info = ({navigation, route}) => {
                 onPress={navigation.goBack}
             />
 
-            <Icon
-                name="fa-doutone fa-cart-shopping" size={28}
-            />
+       
+        </View>
+        <View style={styles.imageContainer} >
+            <Image style={{width:'70%', height: '70%', resizeMode: 'contain'}} source={ item.image}  />
         </View>
 
     </SafeAreaView>
@@ -36,5 +38,14 @@ const styles = StyleSheet.create({
         marginTop:'20px',
         flexDirection:'row',
         justifyContent:'space-between',
+    },
+
+    imageContainer:{
+        width:'100%',
+        height:'100%',
+        flex:0.45,
+        marginTop:'20px',
+        justifyContent:'center',
+        alignItems:'center',
     },
 })

@@ -72,10 +72,8 @@ const Home = ({navigation}) => {
           flexDirection:'row',
           justifyContent:'space-between'}}>
             <Text style={{fontSize:18, fontWeight:'bold'}} >
-              R{food.Price}
+              R{food.price}
             </Text>
-
-            <View style={styles.addToCard}>+</View>
           </View>
         <View>
           </View>
