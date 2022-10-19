@@ -17,6 +17,8 @@ function App() {
       
       <StatusBar backgroundColor={Color.white}/>
       <Stack.Navigator  initialRouteName='Information'>
+        <Stack.Screen  options={{headerShown:false}} name="Register" component={Register}/>
+        <Stack.Screen options={{headerShown:false}} name="Login" component={Login} />
         <Stack.Screen  options={{headerShown:false}} name="Home" component={Home}/>
         <Stack.Screen  options={{headerShown:false}} name="Information" component={Info}/>
       

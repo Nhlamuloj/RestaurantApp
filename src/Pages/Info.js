@@ -1,5 +1,5 @@
 import { SafeAreaView, StyleSheet, Text, View } from 'react-native'
-import Icon from 'react-native-vector-icons/FontAwesome5'
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 import React from 'react'
 
 const Info = ({navigation, route}) => {
@@ -11,6 +11,10 @@ const Info = ({navigation, route}) => {
             <Icon
                 name="chevron-left" size={28} 
                 onPress={navigation.goBack}
+            />
+
+            <Icon
+                name="fa-doutone fa-cart-shopping" size={28}
             />
         </View>
 
@@ -25,5 +29,12 @@ const styles = StyleSheet.create({
     container:{
         backgroundColor:'white', 
         height: '100%',
-    }
+    },
+
+    header:{
+        paddingHorizontal:'20px',
+        marginTop:'20px',
+        flexDirection:'row',
+        justifyContent:'space-between',
+    },
 })
