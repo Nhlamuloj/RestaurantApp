@@ -1,7 +1,7 @@
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import React,{useState} from "react";
 import { StyleSheet,KeyboardAvoidingView, View,TextInput, TouchableOpacity,Text } from "react-native";
-import Icon from 'react-native-vector-icons/FontAwesome5';
+import { LinearGradient } from 'expo-linear-gradient';
 import {auth} from '../firebase/firebase';
 
 const Register =({navigation})=>{
@@ -15,103 +15,125 @@ const register =(()=>{
         console.log(error)
     })
 })
+
+
 return(
-    <KeyboardAvoidingView
-    style={styles.container}
-    behavior='padding'
-    >
-        <View style={styles.inputContainer}>
-            <View style={styles.register}>
-                <Icon
-                    color ='black'
-                    name ='user'
-                    type = 'font-awesome'
-                    size= {12}
-                />
-                <TextInput
-                    placeholder='Name'
-                    style={styles.input}
-                
-                />
-            </View>
+    
+    <KeyboardAvoidingView    style={{height:'100%'}}>
+        <LinearGradient
+            colors={['#222','#222','#111']}
+            style={[styles.container,{height:'100%'}]}
+        >
+            <Text style={styles.welcome}>Welcome</Text>
+            <Text style={styles.Login}>Register</Text>
 
-            <View style={styles.register}>
-                <Icon
-                    color='black'
-                    name ='envelope'
-                    type ='font-awesome'
-                    size ={12}
-                />
+            <TextInput
+                placeholder="Name"
+                placeholderTextColor={'white'}
+                style={styles.input}
+               
+            />
 
-                <TextInput
-                    placeholder='Email'
-                    style={styles.input}
-                    onChangeText={(email)=>setEmail(email)}
-                />
-            </View>
+            <TextInput
+                placeholder="Email Address"
+                placeholderTextColor={'white'}
+                style={styles.input}
+                onChangeText={(email)=>setEmail(email)}
+            />
 
-            <View style={styles.register}>
-                <Icon
-                    color='black'
-                    name ='lock'
-                    type ='font-awesome'
-                    size ={12}
-                />
+            
+            <TextInput
+                placeholder="Password"
+                placeholderTextColor={'white'}
+                style={styles.input}
+                secureTextEntry={true}
+                onChangeText={(password)=>setPassword(password)}
+            />
+            <TouchableOpacity 
+                style={styles.LoginBtn}
 
-                <TextInput
-                    placeholder='Password'
-                    style={styles.input}
-                    onChangeText={(password)=>setPassword(password)}
-                />
-            </View>
-            <View style={styles.buttonContainer}>
-                <TouchableOpacity
-                style={styles.button}
                 onPress={register}
                 >
-                    <Text style={styles.buttonText}>SigIn</Text>
+                <Text style={styles.LoginTxt}>Register</Text>
+            </TouchableOpacity>
+
+            <View style={styles.signUpTextView}>
+                <Text style={styles.signUpTxt}>Have an account</Text>
+                <TouchableOpacity
+                    onPress={()=>navigation.push('Login')}
+                >
+                    <Text style={[styles.signUpTxt, {color:'#B53471'}]}>
+                        {'click here'}
+                    </Text>
                 </TouchableOpacity>
             </View>
-        </View>
-
+        </LinearGradient>
     </KeyboardAvoidingView>
 )
 }
-
 export default Register
-const styles= StyleSheet.create({
+
+const styles = StyleSheet.create({
     container:{
         flex:1,
-        justifyContent: 'center',
-        paddingHorizontal:'30px',
+        paddingTop:50,
+        paddingHorizontal:20,
     },
 
-    register:{
-        width:'100%',
-        paddingHorizontal:'10px',
-        display:'flex',
-        flexDirection:'row',
-        alignContent:'center',
-        borderBottomColor:'grey',
-        borderBottomWidth:1,
-        paddingHorizontal:2,
+    welcome:{
+        fontSize:30,
+        fontWeight:900,
+        color:'white',
+        alignSelf:'center'
     },
+
+    Login:{
+        color:'white',
+        fontSize:28,
+        fontWeight:'bold',
+        marginTop:20,
+        marginBottom:10
+    },
+
     input:{
         width:'100%',
-        paddingLeft:'10px',
+        height:50,
+        backgroundColor:'#333',
+        borderRadius:6,
+        marginTop:10,
+        paddingHorizontal:10,
+        fontSize:16,
+        color:'#808e9b',
     },
 
-    button:{
-        backgroundColor:'blue',
-        width:'100%',
-        alignItems:'center',
-        fontSize:'bold',
-        padding:15,
-        marginTop:'20px',
-        borderRadius:'27px'
+    LoginBtn:{
+        backgroundColor:'#833471',
+        paddingVertical:12,
+        borderRadius:6,
+        marginTop:20
     },
-    buttonText:{
+
+    LoginTxt:{
+        fontSize:20,
+        fontWeight:500,
+        color:'blue',
+        alignSelf:'center'
+    },
+
+    signUpTextView:{
+        marginTop:40,
+        display:'flex',
+        flexDirection:'row',
+        justifyContent:'center',
+    },
+
+    signUpTxt:{
         color:'white',
-        fontWeight:'bold'
-    }
+        fontSize:20,
+        fontWeight:'500'
+    },
+
+
+
+    
 })

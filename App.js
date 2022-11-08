@@ -7,6 +7,7 @@ import Login from './src/Pages/Login';
 import  Register from './src/Pages/Register';
 import Home from './src/Pages/Home';
 import Info from './src/Pages/Info'
+import Forgot from './src/Pages/Forgot';
 
 
 
@@ -17,11 +18,12 @@ function App() {
     <NavigationContainer >
       
       <StatusBar backgroundColor={Color.white}/>
-      <Stack.Navigator  initialRouteName='Home'>
+      <Stack.Navigator  initialRouteName='Login'>
         <Stack.Screen  options={{headerShown:false}} name="Register" component={Register}/>
         <Stack.Screen options={{headerShown:false}} name="Login" component={Login} />
         <Stack.Screen  options={{headerShown:false}} name="Home" component={Home}/>
         <Stack.Screen  options={{headerShown:false}} name="Information" component={Info}/>
+        <Stack.Screen  options={{headerShown:false}} name="Forgot" component={Forgot}/>
       
       </Stack.Navigator>
     </NavigationContainer>

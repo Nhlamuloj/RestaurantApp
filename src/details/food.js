@@ -13,7 +13,7 @@ const food =[
         name:'sea',
         ingredients:'mix',
         price:'50.00',
-        image:require('../Images/Food/seafood1.jpg')
+        image:require('../Images/Food/drink1.jpg')
     },
 
     {

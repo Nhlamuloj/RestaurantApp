@@ -22,16 +22,36 @@ const Home = ({navigation}) => {
   }
   const Card= ({food})=>{
     return(
-      <View style={styles.card}>
-        <View style={{height:'70%', width:'70', alignItems:'center'}}>
-          <Image style={{flex:1,resizeMode:'center'}} source={food.image} />
-        </View>
+      <TouchableOpacity onPress={()=> navigation.navigate("Information",food)}>
+        <View style={styles.card}>
+          <View style={{height:'70%', width:'70', alignItems:'center'}}>
+            <Image style={{flex:1,resizeMode:'center'}} source={food. image} />
+          </View>
 
-        <View>
-          <Text>{food.name}</Text>
-        </View>
+          <View>
+                <Text style={{fontWeight:'bold', fontSize:17,marginTop:10}}> 
+                   {food.name}
+                </Text>
 
-      </View>
+                <View style={{flexDirection:'row',
+                    justifyContent:'space-between',
+                    marginTop:5
+                  }}>
+                    <Text style={{fontWeight:'bold'}}>R{food.price}</Text>
+                    <View style={{
+                      height:25, 
+                      width:25, 
+                      backgroundColor:'grey',
+                      borderRadius:5,
+                      justifyContent:'center',
+                      alignItems:'center'
+                      }}>
+                      <Text style={{fontSize:10,color:'white'}}>+</Text>
+                    </View>
+                </View>
+          </View>
+        </View>
+      </TouchableOpacity>
     )
   }
   return(

@@ -12,6 +12,10 @@ const Info = ({navigation, route}) => {
                 name="chevron-left" size={28} 
                 onPress={navigation.goBack}
             />
+
+            <Icon
+                name="cart-plus" size={28} 
+            />
         </View>
         <View style={styles.imageContainer} >
             <Image style={{width:'70%', height: '70%', resizeMode: 'contain'}} source={ item.image}  />
@@ -57,7 +61,9 @@ const Info = ({navigation, route}) => {
                 </Text>
                  <View>
                     <View style={styles.borderBtn}>
-                        <TouchableOpacity style={styles.btnText}></TouchableOpacity>
+                        <TouchableOpacity style={styles.btnText}>
+                            <Text>Buy</Text>
+                        </TouchableOpacity>
                     </View>
                 </View>
                 
