@@ -1,25 +1,33 @@
+import React,{useEffect, useState,useContext} from 'react';
 import { SafeAreaView, StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native'
- import Icon from 'react-native-vector-icons/FontAwesome'
-import React from 'react'
+import { getProduct } from '../details/food';
+import { CartContext } from "../../CartContext";
 
-const Info = ({navigation, route}) => {
-    const item = route.params;
 
+const Info = ({ route}) => {
+
+    const productId = route.params;
+    const[product,setFood]=useState({})
+
+    useEffect(()=>{
+        setFood(getProduct(productId)) 
+    })
+
+    const {addItemToCart}=useContext(CartContext)
+
+    function onAddToCart(){
+        addItemToCart( productId.id)
+    }
+
+    
   return (
     <SafeAreaView style={styles.container} >
         <View style= {styles.header}>
-            <Icon
-                name="chevron-left" size={28} 
-                onPress={navigation.goBack}
-            />
-
-            <Icon
-                name="cart-plus" size={28} 
-            />
+        
         </View>
         <View style={styles.imageContainer} >
-            <Image style={{width:'70%', height: '70%', resizeMode: 'contain'}} source={ item.image}  />
-        </View>
+            <Image style={{width:'70%', height: '70%', resizeMode: 'contain'}} source={ productId.image}  />
+        </View>  
 
         <View style={styles.details}>
             <View style={{
@@ -42,7 +50,7 @@ const Info = ({navigation, route}) => {
                 justifyContent:'space-between',
                 alignItems:'center'
                 }} >
-                    <Text style={{fontSize:'23px', fontWeight:'bold'}}>{item.name}</Text>
+                    <Text style={{fontSize:'23px', fontWeight:'bold'}}>{productId.name}</Text>
                     <View style={styles.price}>
                         <Text style={{
                             marginLeft:'15px',
@@ -50,19 +58,21 @@ const Info = ({navigation, route}) => {
                             fontWeight:'bold',
                             fontSize:'18px',
                         }}>
-                            R{item.price} 
+                            R{productId.price} 
                         </Text>
                     </View>
             </View>
             <View style={{paddingHorizontal:'20px', marginTop:'10px'}}>
                 <Text style={{fontSize:'20px',fontWeight:'bold'}}>Ingredients</Text>
                 <Text style={{color:'grey', lineHeight:'22px', marginTop:'20px',fontSize:'18px'}}>
-                    {item.ingredients} 
+                    {productId.ingredients} 
                 </Text>
                  <View>
                     <View style={styles.borderBtn}>
-                        <TouchableOpacity style={styles.btnText}>
-                            <Text>Buy</Text>
+                        <TouchableOpacity style={styles.btnText}
+                            onPress={onAddToCart}
+                        >
+                            <Text>Add To Cart</Text>
                         </TouchableOpacity>
                     </View>
                 </View>

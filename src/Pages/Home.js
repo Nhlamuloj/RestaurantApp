@@ -1,7 +1,7 @@
 import React,{useState} from 'react';
 import {StyleSheet ,View,SafeAreaView, Text, Image,TextInput, StatusBar, ScrollView, TouchableOpacity,FlatList, Dimensions} from 'react-native'
-import food from '../details/food'
-import Pic from "@fortawesome/free-regular-svg-icons"
+import PRODUCTS from '../details/food';
+
 
 const width = Dimensions.get('screen') .width/2-30
 const Home = ({navigation}) => {
@@ -20,24 +20,24 @@ const Home = ({navigation}) => {
       </View>
     )
   }
-  const Card= ({food})=>{
+  const Card= ({PRODUCTS})=>{
     return(
-      <TouchableOpacity onPress={()=> navigation.navigate("Information",food)}>
+      <TouchableOpacity onPress={()=> navigation.navigate("Information",PRODUCTS)}>
         <View style={styles.card}>
           <View style={{height:'70%', width:'70', alignItems:'center'}}>
-            <Image style={{flex:1,resizeMode:'center'}} source={food. image} />
+            <Image style={{flex:1,resizeMode:'center'}} source={PRODUCTS. image} />
           </View>
 
           <View>
                 <Text style={{fontWeight:'bold', fontSize:17,marginTop:10}}> 
-                   {food.name}
+                   {PRODUCTS.name}
                 </Text>
 
                 <View style={{flexDirection:'row',
                     justifyContent:'space-between',
                     marginTop:5
                   }}>
-                    <Text style={{fontWeight:'bold'}}>R{food.price}</Text>
+                    <Text style={{fontWeight:'bold'}}>R{PRODUCTS.price}</Text>
                     <View style={{
                       height:25, 
                       width:25, 
@@ -78,8 +78,8 @@ const Home = ({navigation}) => {
         paddingBottom:50
       }}
       showsVerticalScrollIndicator={false}
-       data={food}
-        renderItem={({item})=><Card food={item }/>}
+       data={PRODUCTS}
+        renderItem={({item})=><Card PRODUCTS={item }/>}
         />
     </SafeAreaView>
   )
