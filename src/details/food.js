@@ -4,7 +4,7 @@ const PRODUCTS =[
         id:1,
         name:'sea',
         ingredients:'mix',
-        price:50,
+        price:100,
         image:require('../Images/Food/seafood1.jpg')
     },
 
@@ -20,12 +20,20 @@ const PRODUCTS =[
         id:3,
         name:'sea',
         ingredients:'mix',
-        price:50,
+        price:500,
         image:require('../Images/Food/seafood1.jpg')
     },
     
     {
         id:4,
+        name:'sea',
+        ingredients:'mix',
+        price:200,
+        image:require('../Images/Food/seafood1.jpg')
+    },
+
+    {
+        id:5 ,
         name:'sea',
         ingredients:'mix',
         price:50,

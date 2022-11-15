@@ -5,9 +5,10 @@ import PRODUCTS from '../details/food';
 
 const width = Dimensions.get('screen') .width/2-30
 const Home = ({navigation}) => {
-  const categories=['Seafood','Salad', 'Drinks'];
+  const categories=['Food','Salad', 'Drinks'];
 
-  const [currentSelectedIndex, setCurrentSelectedIndex]= useState(0)
+  const [currentSelectedIndex, setCurrentSelectedIndex]= useState([0])
+  
   const CategoryList=()=>{
     return(
       <View style={styles.categoryContainer}>
@@ -24,8 +25,8 @@ const Home = ({navigation}) => {
     return(
       <TouchableOpacity onPress={()=> navigation.navigate("Information",PRODUCTS)}>
         <View style={styles.card}>
-          <View style={{height:'70%', width:'70', alignItems:'center'}}>
-            <Image style={{flex:1,resizeMode:'center'}} source={PRODUCTS. image} />
+          <View style={{height:'70%', width:'70%', alignItems:'center'}}>
+            <Image style={{flex:1,resizeMode:'center',height:'100%',width:'100%'}} source={PRODUCTS. image} />
           </View>
 
           <View>

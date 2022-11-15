@@ -11,6 +11,7 @@ export function CartIcon({navigation}){
                 Cart ({getItemsCount()})
             </Text>
         </View>
+	
     )
 }
 
