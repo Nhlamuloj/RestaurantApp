@@ -21,7 +21,7 @@ return(
     
     <KeyboardAvoidingView    style={{height:'100%'}}>
         <LinearGradient
-            colors={['#222','#222','#111']}
+            colors={['#200','#217','#237']}
             style={[styles.container,{height:'100%'}]}
         >
             <Text style={styles.welcome}>Welcome</Text>
@@ -107,7 +107,7 @@ const styles = StyleSheet.create({
     },
 
     LoginBtn:{
-        backgroundColor:'#833471',
+        backgroundColor:'#4663ac',
         paddingVertical:12,
         borderRadius:6,
         marginTop:20
@@ -116,7 +116,7 @@ const styles = StyleSheet.create({
     LoginTxt:{
         fontSize:20,
         fontWeight:500,
-        color:'blue',
+        color:'#e8ecf2',
         alignSelf:'center'
     },
 

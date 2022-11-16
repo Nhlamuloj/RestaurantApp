@@ -9,7 +9,7 @@ export function CartIcon({navigation}){
         <View style={styles.container}>
             <Text style={styles.text} onPress={() => {navigation.navigate('Cart')}}>
                 Cart ({getItemsCount()})
-            </Text>
+            </Text>			
         </View>
 	
     )
@@ -18,7 +18,7 @@ export function CartIcon({navigation}){
 const styles = StyleSheet.create({
 	container: {
 		marginHorizontal: 8,
-		backgroundColor: 'lightblue',
+		backgroundColor: '#4663ac',
 		height: 39,
 		padding: 12,
 		borderRadius: 32,

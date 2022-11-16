@@ -1,23 +1,19 @@
 import React,{useState} from 'react';
 import {StyleSheet ,View,SafeAreaView, Text, Image,TextInput, StatusBar, ScrollView, TouchableOpacity,FlatList, Dimensions} from 'react-native'
 import PRODUCTS from '../details/food';
+import { CartIcon } from '../components/CartIcon';
 
 
 const width = Dimensions.get('screen') .width/2-30
 const Home = ({navigation}) => {
-  const categories=['Food','Salad', 'Drinks'];
+  
 
   const [currentSelectedIndex, setCurrentSelectedIndex]= useState([0])
   
   const CategoryList=()=>{
     return(
       <View style={styles.categoryContainer}>
-        {categories.map((item,index)=>(
-          <TouchableOpacity key={index} onPress={()=>setCurrentSelectedIndex(index)}>
-            <Text style={[styles.categoryText , currentSelectedIndex== index && styles.categoryTextSelected]}>{item}</Text>
-          </TouchableOpacity>
-          
-        ))}
+       
       </View>
     )
   }
@@ -63,14 +59,13 @@ const Home = ({navigation}) => {
       <View style={styles.header}>
         <View>
           <Text style={{fontSize:25,fontWeight:'bold'}}>Welcome to </Text>
-          <Text style={{fontSize:30,fontWeight:'bold',color:'blue'}}>Restaurant</Text>
+          <Text style={{fontSize:30,fontWeight:'bold',color:'	#F3F6FB'}}>Restaurant</Text>
+        </View>
+        <View>
+          <CartIcon navigation={navigation} />
         </View>
       </View>
-      <View style={{marginTop:30,flexDirection:'row' }}>
-        <View style={styles.search}>
-          <TextInput placeholder='search' style={styles.input}/>
-        </View>
-      </View>
+      
       <CategoryList/>
       <FlatList numColumns={2}
       columnWrapperStyle={{justifyContent:'space-between'}}
